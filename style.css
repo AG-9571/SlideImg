@@ -1,3 +1,13 @@
+/*
+Theme Name: Simple doble exposition
+Theme URI: aomerge.github.io/SlideImg/
+Author: Angel Ortega - ag9571
+Author URI: http://tu-sitio-web.com/
+Description: Una breve descripción de tu tema.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
 /*Global styles*/
 body{
     background-color: #f2f4f3 ;
@@ -69,14 +79,21 @@ body header nav a.active{
     border-radius: 5px;
     text-align: center;
 }
+body nav{
+    display: none;
+}
 /*end styles header*/
 /*style main*/
 body main{
+    position: absolute;
+    top: -5px;
+    z-index: 3;
     display: grid;
+    height: 100vh;
     grid-template-columns: 50px repeat(9,1fr) 50px;
     margin-inline: 20px;
 }
-body main div {
+body main div {    
     width: 100%;
     z-index: 4;
     display: flex;
@@ -92,7 +109,8 @@ body main div button:hover{
     background-color: #000000e3;
     color: #f2f4f3;
 }
-body main section{    
+body main section{   
+
     grid-column: 7/11;    
     height: 85vh;
     display: grid;    
@@ -132,23 +150,22 @@ body main section div.content button:hover{
     background-color: #000000e3;
     color: #f2f4f3;
 }
-/* styles img backgraond imagen*/
-body .bg-fnt{    
+body main section article div.bg-fnt{    
     position: absolute; 
     z-index: 2;   
-    top: -7vh;     
+    top: 0vh;     
     left: -31vh;
     width: 100%; 
     height: 101vh;
 }
-body .bg-fnt div{
-    position: relative; 
+body main section article div.bg-fnt div{    
     z-index: 3; 
     height: 100%;         
     width: 74%;
     overflow: hidden;    
 }
-body .bg-fnt div img{
+body main section article div.bg-fnt div img{
+    height: 100%;
     display: block;
     max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
     position: absolute;
@@ -157,5 +174,110 @@ body .bg-fnt div img{
     transform: translate(-50%, -50%); /* Centra la imagen */    
     object-fit: cover;
 }
-/* end img backgraond*/
 
+/*resonsive site*/
+@media screen and (max-width: 920px){
+    body header nav{
+        display: none;
+    }
+    body header div {
+        grid-column: 1/13;
+        justify-content: center;
+    }
+    body main section article div.bg-fnt{
+        width: 150%;
+    }
+    body main section article div.bg-fnt div img{    
+    top: 50%;
+    left: 64%;
+    transform: translate(-50%, -50%); /* Centra la imagen */    
+    object-fit: cover;
+    }
+    body main section {
+        grid-column: 2/11;
+        height: 100vh;
+    }
+    body main section article {
+        display: flex;
+        justify-content: center;
+    }
+    body nav {
+        border-radius: 15px;
+        padding:10px 5px;
+        background-color: #fff;
+        position: absolute;
+        z-index: 4;
+        margin-inline: 10%;
+        bottom: 2%;
+        height: 30px;
+        width: 80%;
+        grid-column: 8/13;
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        justify-content: flex-end;
+        align-items: center;
+    }
+    body nav  a{
+        font-size: 16px;
+        color: #000000e3;
+        text-decoration: none;
+        margin-inline: 10px;
+    }
+    body nav a:hover{
+        color: #ffffff;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: #000000e3;
+        text-align: center;
+    }
+    body nav a.active{
+        border: #070707e3 solid 1px;        
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
+}
+@media screen and (max-width: 460px){
+    body main section article div.bg-fnt{
+        width: 157%;
+    }
+    body nav  a{
+        font-size: 11px;
+        color: #000000e3;
+        text-decoration: none;
+        margin-inline: 10px;
+    }
+    body main section article div.bg-fnt div img{
+        top: 51%;
+        left: 64.3%;
+    }
+}
+@media screen and (max-width: 460px){
+    body main section article div.bg-fnt div img {
+        top: 51%;
+        left: 72.3%;
+    }
+    body nav{
+        bottom: 0;
+        margin-inline: 1%;
+        width: 95%;
+    }
+    body nav  a{
+        font-size: 9px;
+        margin-inline: 0%;        
+    }
+    p{
+        font-size: 12px;
+        width: 100%;
+    }
+    body main section div.content h1{
+        font-size: 25px;
+    }
+    samp{
+        display: none;
+    }
+    body main section div.content span{
+        font-size: 11px;
+    }
+}
